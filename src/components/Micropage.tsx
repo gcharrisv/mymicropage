@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Instagram, Linkedin, Youtube, Facebook, Mail, Globe, Palette, Settings } from 'lucide-react';
+import { Instagram, Linkedin, Youtube, Facebook, Mail, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import profileImage from '@/assets/profile-hero.jpg';
 
@@ -32,8 +32,7 @@ interface MicropageData {
 }
 
 const Micropage = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [data, setData] = useState<MicropageData>({
+  const [data] = useState<MicropageData>({
     name: "Your Name",
     title: "Creative Professional",
     bio: "Sharing my work and passion with the world ✨",
@@ -73,19 +72,6 @@ const Micropage = () => {
         <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-white/20 animate-float" />
         <div className="absolute top-1/3 right-16 w-24 h-24 rounded-full bg-white/15 animate-float delay-1000" />
         <div className="absolute bottom-20 left-1/4 w-20 h-20 rounded-full bg-white/25 animate-float delay-2000" />
-      </div>
-
-      {/* Edit Mode Toggle */}
-      <div className="absolute top-4 right-4 z-50">
-        <Button
-          variant={isEditing ? "default" : "secondary"}
-          size="sm"
-          onClick={() => setIsEditing(!isEditing)}
-          className="glass backdrop-blur-md hover-lift"
-        >
-          {isEditing ? <Palette className="w-4 h-4 mr-2" /> : <Settings className="w-4 h-4 mr-2" />}
-          {isEditing ? 'Design' : 'Edit'}
-        </Button>
       </div>
 
       {/* Main Content */}
@@ -158,53 +144,8 @@ const Micropage = () => {
           ))}
         </div>
 
-        {/* Add Link Button (Edit Mode) */}
-        {isEditing && (
-          <Button 
-            variant="secondary" 
-            className="w-full mt-6 glass backdrop-blur-md hover-lift"
-            onClick={() => {
-              // Add new link functionality
-              const newLink: MicropageLink = {
-                id: Date.now().toString(),
-                title: 'New Link',
-                url: '#',
-                description: 'Add your description',
-                visible: true
-              };
-              setData(prev => ({
-                ...prev,
-                links: [...prev.links, newLink]
-              }));
-            }}
-          >
-            + Add New Link
-          </Button>
-        )}
-
-
       </div>
 
-      {/* Theme Switcher (Edit Mode) */}
-      {isEditing && (
-        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-          <Card className="glass backdrop-blur-md p-4">
-            <div className="flex gap-2">
-              {Object.entries(themeClasses).map(([theme, _]) => (
-                <Button
-                  key={theme}
-                  variant={data.theme === theme ? "default" : "secondary"}
-                  size="sm"
-                  onClick={() => setData(prev => ({ ...prev, theme: theme as any }))}
-                  className="capitalize"
-                >
-                  {theme}
-                </Button>
-              ))}
-            </div>
-          </Card>
-        </div>
-      )}
     </div>
   );
 };
