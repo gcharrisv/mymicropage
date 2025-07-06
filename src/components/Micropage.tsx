@@ -1,150 +1,146 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Instagram, Linkedin, Youtube, Facebook, Mail, Globe } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import profileImage from '@/assets/profile-hero.jpg';
+import { useState } from 'react'
+import { Card } from '@/components/ui/card'
+import { Instagram, Linkedin } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import profileImage from '@/assets/profile-hero.jpg'
+import fighterJets from '@/assets/fighter-jets.jpeg'
+import codeBg from '@/assets/code-background.jpg'
 
 interface SocialLink {
-  platform: string;
-  url: string;
-  icon: React.ComponentType<{ className?: string }>;
-  visible: boolean;
+  platform: string
+  url: string
+  icon: React.ComponentType<{ className?: string }>
+  visible: boolean
 }
 
 interface MicropageLink {
-  id: string;
-  title: string;
-  url: string;
-  description?: string;
-  visible: boolean;
-}
-
-interface MicropageData {
-  name: string;
-  title: string;
-  bio: string;
-  profileImage: string;
-  theme: 'gradient' | 'minimal' | 'dark' | 'neon';
-  socialLinks: SocialLink[];
-  links: MicropageLink[];
+  id: string
+  title: string
+  url: string
+  description?: string
+  visible: boolean
 }
 
 const Micropage = () => {
-  const [data] = useState<MicropageData>({
-    name: "Your Name",
-    title: "Creative Professional",
-    bio: "Sharing my work and passion with the world ✨",
-    profileImage: profileImage,
-    theme: 'gradient',
+
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+
+  const [data] = useState({
+    name: 'George Harrison V',
+    title: 'Aerospace Engineer | Software Developer Incoming F-22 Flight Test Engineer',
+    bio:
+      'Driven Engineer with a passion for aerospace engineering and software development. Currently exploring Creative Content Creation and AI.',
+    profileImage,
     socialLinks: [
-      { platform: 'Instagram', url: '#', icon: Instagram, visible: true },
-      { platform: 'LinkedIn', url: '#', icon: Linkedin, visible: true },
-      { platform: 'YouTube', url: '#', icon: Youtube, visible: false },
-      { platform: 'Facebook', url: '#', icon: Facebook, visible: false },
-    ],
+      {
+        platform: 'Instagram',
+        url: 'https://www.instagram.com/george_harrisonv/',
+        icon: Instagram,
+        visible: true,
+      },
+      {
+        platform: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/georgeharrison/',
+        icon: Linkedin,
+        visible: true,
+      },
+    ] as SocialLink[],
     links: [
-      { id: '1', title: 'My Portfolio', url: '#', description: 'Check out my latest work', visible: true },
-      { id: '2', title: 'Book a Call', url: '#', description: 'Let\'s work together', visible: true },
-      { id: '3', title: 'My Blog', url: '#', description: 'Thoughts and insights', visible: true },
-      { id: '4', title: 'Contact Me', url: '#', description: 'Get in touch', visible: true },
-    ]
-  });
+      {
+        id: '1',
+        title: 'Capstone Aerospace',
+        url: 'https://capstoneaerospace.net/',
+        description: 'My Aircraft Senior Design Project',
+        visible: true,
+      },
+      {
+        id: '2',
+        title: 'Under Construction',
+        url: '#',
+        description: 'Super Duper Cool Project Coming',
+        visible: true,
+      },
+      {
+        id: '3',
+        title: 'Another Epic Project',
+        url: '#',
+        description: 'Under Construction',
+        visible: true,
+      },
+    ] as MicropageLink[],
+  })
 
-  const themeClasses = {
-    gradient: 'bg-gradient-primary',
-    minimal: 'bg-background',
-    dark: 'bg-secondary',
-    neon: 'bg-gradient-secondary'
-  };
+  const visibleSocial = data.socialLinks.filter((s) => s.visible)
+  const visibleLinks = data.links.filter((l) => l.visible)
 
-  const visibleSocialLinks = data.socialLinks.filter(link => link.visible);
-  const visibleLinks = data.links.filter(link => link.visible);
+  const bgImage = theme === 'light' ? `url(${fighterJets})` : `url(${codeBg})`
 
   return (
-    <div className={cn(
-      "min-h-screen relative overflow-hidden",
-      themeClasses[data.theme]
-    )}>
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-white/20 animate-float" />
-        <div className="absolute top-1/3 right-16 w-24 h-24 rounded-full bg-white/15 animate-float delay-1000" />
-        <div className="absolute bottom-20 left-1/4 w-20 h-20 rounded-full bg-white/25 animate-float delay-2000" />
-      </div>
+    <div
+      className={cn(
+        'min-h-screen bg-cover bg-center transition-colors duration-500',
+        'before:content-[""] before:absolute before:inset-0 before:bg-black/20 before:pointer-events-none'
+      )}
+      style={{ backgroundImage: bgImage }}
+    >
+      {/* ---- Toggle Button ---- */}
+      <button
+        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-white/30 backdrop-blur-md text-sm font-medium text-white hover:bg-white/50 transition"
+      >
+        {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+      </button>
 
-      {/* Main Content */}
-      <div className="relative z-10 max-w-md mx-auto px-6 py-12">
-        
-        {/* Hero Section */}
-        <div className="text-center mb-8 animate-fade-in">
-          <div className="relative mb-6">
-            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-glow animate-glow">
-              <img 
-                src={data.profileImage} 
-                alt={data.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
+      <div className="relative z-10 max-w-md mx-auto px-6 py-12 text-white">
+        {/* Avatar & Intro */}
+        <div className="text-center mb-8">
+          <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
+            <img
+              src={data.profileImage}
+              alt={data.name}
+              className="w-full h-full object-cover"
+            />
           </div>
-          
-          <h1 className="text-3xl font-bold text-white mb-2 font-display animate-delay-100">
-            {data.name}
-          </h1>
-          <p className="text-xl text-white/90 mb-3 animate-delay-200">
-            {data.title}
-          </p>
-          <p className="text-white/80 text-base leading-relaxed animate-delay-300">
-            {data.bio}
-          </p>
+          <h1 className="mt-4 text-3xl font-bold">{data.name}</h1>
+          <p className="mt-1 text-lg">{data.title}</p>
+          <p className="mt-2 text-base leading-relaxed">{data.bio}</p>
         </div>
 
-        {/* Social Links */}
-        {visibleSocialLinks.length > 0 && (
-          <div className="flex justify-center gap-4 mb-8 animate-slide-up">
-            {visibleSocialLinks.map((social, index) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={social.platform}
-                  href={social.url}
-                  className="w-12 h-12 rounded-full glass backdrop-blur-md flex items-center justify-center text-white hover-lift hover-glow transition-smooth"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              );
-            })}
-          </div>
-        )}
+        {/* Social Icons */}
+        <div className="flex justify-center gap-4 mb-8">
+          {visibleSocial.map((s, i) => {
+            const Icon = s.icon
+            return (
+              <a
+                key={s.platform}
+                href={s.url}
+                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
+              >
+                <Icon className="w-5 h-5 text-white" />
+              </a>
+            )
+          })}
+        </div>
 
         {/* Links */}
         <div className="space-y-4">
-          {visibleLinks.map((link, index) => (
-            <Card 
+          {visibleLinks.map((link, i) => (
+            <Card
               key={link.id}
-              className="glass backdrop-blur-md border-white/20 hover-lift transition-smooth p-6 animate-slide-up"
-              style={{ animationDelay: `${(index + 1) * 150}ms` }}
+              className="bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30"
             >
-              <a href={link.url} className="block group">
-                <h3 className="text-white font-semibold text-lg mb-1 group-hover:text-primary-foreground transition-smooth">
-                  {link.title}
-                </h3>
+              <a href={link.url} className="block text-white">
+                <h3 className="font-semibold text-lg">{link.title}</h3>
                 {link.description && (
-                  <p className="text-white/70 text-sm">
-                    {link.description}
-                  </p>
+                  <p className="text-sm text-white/80">{link.description}</p>
                 )}
               </a>
             </Card>
           ))}
         </div>
-
       </div>
-
     </div>
-  );
-};
+  )
+}
 
-export default Micropage;
+export default Micropage
