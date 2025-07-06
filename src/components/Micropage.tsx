@@ -98,7 +98,10 @@ const Micropage = () => {
         {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
       </button>
 
-      <div className="relative z-10 max-w-md mx-auto px-6 py-12 text-white">
+      <div className={cn(
+        "relative z-10 max-w-md mx-auto px-6 py-12",
+        theme === 'light' ? 'text-gray-900' : 'text-white'
+      )}>
         {/* Avatar & Intro */}
         <div className="text-center mb-8">
           <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
@@ -108,14 +111,26 @@ const Micropage = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <h1 className="mt-4 text-3xl font-bold">{data.name}</h1>
-          <p className="mt-1 text-lg">{data.title}</p>
-          <p className="mt-2 text-base leading-relaxed">{data.bio}</p>
+          <h1 className={cn(
+            "mt-4 text-3xl font-bold drop-shadow-lg",
+            theme === 'light' ? 'text-gray-900' : 'text-white'
+          )}>{data.name}</h1>
+          <p className={cn(
+            "mt-1 text-lg drop-shadow-md",
+            theme === 'light' ? 'text-gray-800' : 'text-white'
+          )}>{data.title}</p>
+          <p className={cn(
+            "mt-2 text-base leading-relaxed drop-shadow-md",
+            theme === 'light' ? 'text-gray-700' : 'text-white'
+          )}>{data.bio}</p>
         </div>
 
         {/* Social Icons */}
 
-        <h2 className="text-2xl font-semibold mb-4 text-center">Connect With Me</h2>
+        <h2 className={cn(
+          "text-2xl font-semibold mb-4 text-center drop-shadow-lg",
+          theme === 'light' ? 'text-gray-900' : 'text-white'
+        )}>Connect With Me</h2>
 
         <div className="flex justify-center gap-4 mb-8">
           {visibleSocial.map((s, i) => {
@@ -124,9 +139,17 @@ const Micropage = () => {
               <a
                 key={s.platform}
                 href={s.url}
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
+                className={cn(
+                  "w-10 h-10 rounded-full flex items-center justify-center transition shadow-lg",
+                  theme === 'light' 
+                    ? 'bg-white/90 hover:bg-white border border-gray-200' 
+                    : 'bg-white/20 hover:bg-white/40'
+                )}
               >
-                <Icon className="w-5 h-5 text-white" />
+                <Icon className={cn(
+                  "w-5 h-5",
+                  theme === 'light' ? 'text-gray-700' : 'text-white'
+                )} />
               </a>
             )
           })}
@@ -134,18 +157,32 @@ const Micropage = () => {
 
         {/* Links */}
 
-        <h2 className="text-2xl font-semibold mb-4 text-center">My Links</h2>
+        <h2 className={cn(
+          "text-2xl font-semibold mb-4 text-center drop-shadow-lg",
+          theme === 'light' ? 'text-gray-900' : 'text-white'
+        )}>My Links</h2>
 
         <div className="space-y-4 mb-8">
           {visibleLinks.map((link, i) => (
             <Card
               key={link.id}
-              className="bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30"
+              className={cn(
+                "backdrop-blur-sm p-4 transition shadow-lg",
+                theme === 'light'
+                  ? 'bg-white/90 border border-gray-200 hover:bg-white hover:shadow-xl'
+                  : 'bg-white/20 border border-white/30 hover:bg-white/30'
+              )}
             >
-              <a href={link.url} className="block text-white">
+              <a href={link.url} className={cn(
+                "block",
+                theme === 'light' ? 'text-gray-900' : 'text-white'
+              )}>
                 <h3 className="font-semibold text-lg">{link.title}</h3>
                 {link.description && (
-                  <p className="text-sm text-white/80">{link.description}</p>
+                  <p className={cn(
+                    "text-sm",
+                    theme === 'light' ? 'text-gray-600' : 'text-white/80'
+                  )}>{link.description}</p>
                 )}
               </a>
             </Card>
