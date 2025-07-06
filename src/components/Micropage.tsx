@@ -45,6 +45,12 @@ const Micropage = () => {
         icon: Linkedin,
         visible: true,
       },
+      {
+        platform: 'Email',
+        url: `mailto:${'gcharrisv@gmail.com'}`,
+        icon: Mail,
+        visible: true,
+      },
     ] as SocialLink[],
     links: [
       {
@@ -108,6 +114,9 @@ const Micropage = () => {
         </div>
 
         {/* Social Icons */}
+
+        <h2 className="text-2xl font-semibold mb-4 text-center">Connect With Me</h2>
+
         <div className="flex justify-center gap-4 mb-8">
           {visibleSocial.map((s, i) => {
             const Icon = s.icon
@@ -124,6 +133,9 @@ const Micropage = () => {
         </div>
 
         {/* Links */}
+
+        <h2 className="text-2xl font-semibold mb-4 text-center">My Links</h2>
+
         <div className="space-y-4 mb-8">
           {visibleLinks.map((link, i) => (
             <Card
@@ -140,49 +152,6 @@ const Micropage = () => {
           ))}
         </div>
 
-        {/* Let's Connect */}
-        <div className="text-center mt-12">
-          <h2 className="text-xl font-semibold mb-4 text-white">Let’s Connect</h2>
-
-          <div className="flex justify-center gap-4">
-            {/* Gmail */}
-            <a
-              href={`https://mail.google.com/mail/?view=cm&to=${data.email}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
-              title="Gmail"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.02l10.344 7.758 10.344-7.758h.02c.904 0 1.636.732 1.636 1.636z" fill="#EA4335"/>
-              </svg>
-            </a>
-
-            {/* Outlook */}
-            <a
-              href={`https://outlook.office.com/mail/deeplink/compose?to=${data.email}`}
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
-              title="Outlook"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M7.88 12.04q0 .45-.11.87-.1.41-.33.74-.22.33-.58.52-.37.2-.87.2t-.85-.2q-.35-.21-.57-.55-.22-.33-.33-.75-.1-.42-.1-.83 0-.87.33-1.44.34-.58.95-.58.3 0 .56.14.26.13.45.37.2.25.3.56.1.32.1.7zM24 12v9.38q0 .46-.33.8-.33.32-.8.32H7.13q-.46 0-.8-.33-.32-.33-.32-.8V18H1q-.41 0-.7-.3-.3-.29-.3-.7V7q0-.41.3-.7Q.58 6 1 6h6.5q2.28 0 3.9 1.62Q13 9.24 13 11.5q0 1.18-.44 2.23-.43 1.05-1.18 1.87-.75.82-1.76 1.3-1.01.48-2.12.48h-1V18h16.25q.25 0 .25-.25V12zM0 12.5v-.5q0-.41.3-.7.29-.3.7-.3h1q.41 0 .7.3.3.29.3.7v.5z" fill="#0078D4"/>
-              </svg>
-            </a>
-
-            {/* Default Mail */}
-            <a
-              href={`mailto:${data.email}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
-              title="Default Mail App"
-            >
-              <Mail className="w-5 h-5 text-white" />
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   )
