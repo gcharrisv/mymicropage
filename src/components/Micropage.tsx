@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Instagram, Linkedin, Mail } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { trackLinkClick, trackSocialClick, trackThemeToggle } from '@/lib/analytics'
 
 interface SocialLink {
   platform: string
@@ -89,7 +90,11 @@ const Micropage = () => {
     >
       {/* ---- Toggle Button ---- */}
       <button
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        onClick={() => {
+          const newTheme = theme === 'light' ? 'dark' : 'light';
+          setTheme(newTheme);
+          trackThemeToggle(newTheme);
+        }}
         className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-white/30 backdrop-blur-md text-sm font-medium text-white hover:bg-white/50 transition"
       >
         {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
@@ -121,6 +126,7 @@ const Micropage = () => {
               <a
                 key={s.platform}
                 href={s.url}
+                onClick={() => trackSocialClick(s.platform, s.url)}
                 className={cn(
                   "w-10 h-10 rounded-full flex items-center justify-center transition shadow-lg",
                   theme === 'light'
@@ -152,10 +158,14 @@ const Micropage = () => {
                   : 'bg-white/20 border border-white/30 hover:bg-white/30 shadow-micropage-dark hover:shadow-micropage-dark-hover'
               )}
             >
-              <a href={link.url} className={cn(
-                "block",
-                theme === 'light' ? 'text-gray-900' : 'text-white'
-              )}>
+              <a 
+                href={link.url} 
+                onClick={() => trackLinkClick(link.title, link.url)}
+                className={cn(
+                  "block",
+                  theme === 'light' ? 'text-gray-900' : 'text-white'
+                )}
+              >
                 <h3 className="font-semibold text-lg">{link.title}</h3>
                 {link.description && (
                   <p className={cn(
