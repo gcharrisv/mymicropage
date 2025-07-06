@@ -153,7 +153,9 @@ const Micropage = () => {
               className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
               title="Gmail"
             >
-              <Mail className="w-5 h-5 text-white" />
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.02l10.344 7.758 10.344-7.758h.02c.904 0 1.636.732 1.636 1.636z" fill="#EA4335"/>
+              </svg>
             </a>
 
             {/* Outlook */}
