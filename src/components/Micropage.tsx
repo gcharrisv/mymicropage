@@ -30,6 +30,7 @@ const Micropage = () => {
     title: 'Aerospace Engineer | Software Developer Incoming F-22 Flight Test Engineer',
     bio:
       'Driven Engineer with a passion for aerospace engineering and software development. Currently exploring Creative Content Creation and AI.',
+    email: 'george@example.com', // Change this to your email
     profileImage,
     socialLinks: [
       {
@@ -123,7 +124,7 @@ const Micropage = () => {
         </div>
 
         {/* Links */}
-        <div className="space-y-4">
+        <div className="space-y-4 mb-8">
           {visibleLinks.map((link, i) => (
             <Card
               key={link.id}
@@ -137,6 +138,17 @@ const Micropage = () => {
               </a>
             </Card>
           ))}
+        </div>
+
+        {/* Let's Connect */}
+        <div className="text-center">
+          <h2 className="text-xl font-semibold mb-4 text-white">Let's Connect</h2>
+          <Card className="bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30">
+            <a href={`mailto:${data.email}`} className="block text-white">
+              <h3 className="font-semibold text-lg">Send me an email</h3>
+              <p className="text-sm text-white/80">{data.email}</p>
+            </a>
+          </Card>
         </div>
       </div>
     </div>
