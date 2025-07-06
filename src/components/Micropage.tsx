@@ -28,7 +28,7 @@ const Micropage = () => {
     bio:
       'Driven Engineer with a passion for aerospace engineering and software development. Currently exploring Creative Content Creation and AI.',
     email: 'gcharrisv@gmail.com',
-    profileImage: '/mymicropage/profile-hero.jpg',
+    profileImage: 'profile-hero.jpg',
     socialLinks: [
       {
         platform: 'Instagram',
@@ -77,7 +77,7 @@ const Micropage = () => {
   const visibleSocial = data.socialLinks.filter((s) => s.visible)
   const visibleLinks = data.links.filter((l) => l.visible)
 
-  const bgImage = theme === 'light' ? 'url(/mymicropage/fighter-jets.jpeg)' : 'url(/mymicropage/code-background.jpg)'
+  const bgImage = theme === 'light' ? 'url(fighter-jets.jpeg)' : 'url(code-background.jpg)'
 
   return (
     <div
