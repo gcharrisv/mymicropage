@@ -2,9 +2,6 @@ import { useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Instagram, Linkedin, Mail } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import profileImage from '@/assets/profile-hero.jpg'
-import fighterJets from '@/assets/fighter-jets.jpeg'
-import codeBg from '@/assets/code-background.jpg'
 
 interface SocialLink {
   platform: string
@@ -31,7 +28,7 @@ const Micropage = () => {
     bio:
       'Driven Engineer with a passion for aerospace engineering and software development. Currently exploring Creative Content Creation and AI.',
     email: 'gcharrisv@gmail.com',
-    profileImage,
+    profileImage: '/mymicropage/profile-hero.jpg',
     socialLinks: [
       {
         platform: 'Instagram',
@@ -80,7 +77,7 @@ const Micropage = () => {
   const visibleSocial = data.socialLinks.filter((s) => s.visible)
   const visibleLinks = data.links.filter((l) => l.visible)
 
-  const bgImage = theme === 'light' ? `url(${fighterJets})` : `url(${codeBg})`
+  const bgImage = theme === 'light' ? 'url(/mymicropage/fighter-jets.jpeg)' : 'url(/mymicropage/code-background.jpg)'
 
   return (
     <div
