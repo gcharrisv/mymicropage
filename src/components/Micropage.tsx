@@ -87,9 +87,6 @@ const Micropage = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center animate-scale-in">
-              <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-            </div>
           </div>
           
           <h1 className="text-3xl font-bold text-white mb-2 font-display animate-delay-100">
