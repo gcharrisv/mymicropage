@@ -185,7 +185,6 @@ const Micropage = () => {
         <div className="text-center text-sm text-gray-500">
           <p>© {new Date().getFullYear()} George Harrison V</p>
           <p>Built cause I was bored and didn't want to pay for a linktree :)</p>
-          <p>Yippee</p>
         </div>
 
       </div>
