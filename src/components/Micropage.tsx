@@ -30,7 +30,7 @@ const Micropage = () => {
     title: 'Aerospace Engineer | Software Developer Incoming F-22 Flight Test Engineer',
     bio:
       'Driven Engineer with a passion for aerospace engineering and software development. Currently exploring Creative Content Creation and AI.',
-    email: 'george@example.com', // Change this to your email
+    email: 'gcharrisv@gmail.com',
     profileImage,
     socialLinks: [
       {
@@ -141,14 +141,49 @@ const Micropage = () => {
         </div>
 
         {/* Let's Connect */}
-        <div className="text-center">
-          <h2 className="text-xl font-semibold mb-4 text-white">Let's Connect</h2>
-          <Card className="bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30">
-            <a href={`mailto:${data.email}`} className="block text-white">
-              <h3 className="font-semibold text-lg">Send me an email</h3>
-              <p className="text-sm text-white/80">{data.email}</p>
+        <div className="text-center mt-12">
+          <h2 className="text-xl font-semibold mb-4 text-white">Let’s Connect</h2>
+
+          <div className="grid grid-cols-1 gap-4 max-w-sm mx-auto">
+            {/* 1) Gmail web compose */}
+            <a
+              href={`https://mail.google.com/mail/?view=cm&to=${data.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="cursor-pointer bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30">
+                <h3 className="font-semibold text-lg text-white">Compose in Gmail</h3>
+                <p className="text-sm text-white/80">Gmail web</p>
+              </Card>
             </a>
-          </Card>
+
+            {/* 2) Outlook web compose */}
+            <a
+              href={`https://outlook.office.com/mail/deeplink/compose?to=${data.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="cursor-pointer bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30">
+                <h3 className="font-semibold text-lg text-white">Compose in Outlook</h3>
+                <p className="text-sm text-white/80">Outlook web</p>
+              </Card>
+            </a>
+
+            {/* 3) Default mailto: (desktop mail app or mobile mail) */}
+            <a
+              href={`mailto:${data.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="cursor-pointer bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30">
+                <h3 className="font-semibold text-lg text-white">Use my default mail app</h3>
+                <p className="text-sm text-white/80">{data.email}</p>
+              </Card>
+            </a>
+          </div>
         </div>
       </div>
     </div>
