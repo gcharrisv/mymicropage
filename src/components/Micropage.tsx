@@ -149,9 +149,9 @@ const Micropage = () => {
             <Card
               key={link.id}
               className={cn(
-                "backdrop-blur-sm p-4 transition shadow-lg",
+                "backdrop-blur-sm p-4 transition shadow-button hover:shadow-glow",
                 theme === 'light'
-                  ? 'bg-white/90 border border-gray-200 hover:bg-white hover:shadow-xl'
+                  ? 'bg-white/90 border border-gray-200 hover:bg-white'
                   : 'bg-white/20 border border-white/30 hover:bg-white/30'
               )}
             >
