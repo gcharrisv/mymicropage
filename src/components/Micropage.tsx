@@ -182,12 +182,6 @@ const Micropage = () => {
           </Button>
         )}
 
-        {/* Footer */}
-        <div className="text-center mt-12 animate-fade-in">
-          <Badge variant="secondary" className="glass backdrop-blur-md text-white/80">
-            Made with ✨ creativity
-          </Badge>
-        </div>
 
       </div>
 
