@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Card } from '@/components/ui/card'
-import { Instagram, Linkedin } from 'lucide-react'
+import { Instagram, Linkedin, Mail } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import profileImage from '@/assets/profile-hero.jpg'
 import fighterJets from '@/assets/fighter-jets.jpeg'
@@ -144,44 +144,38 @@ const Micropage = () => {
         <div className="text-center mt-12">
           <h2 className="text-xl font-semibold mb-4 text-white">Let’s Connect</h2>
 
-          <div className="grid grid-cols-1 gap-4 max-w-sm mx-auto">
-            {/* 1) Gmail web compose */}
+          <div className="flex justify-center gap-4">
+            {/* Gmail */}
             <a
               href={`https://mail.google.com/mail/?view=cm&to=${data.email}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="block"
+              className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
+              title="Gmail"
             >
-              <Card className="cursor-pointer bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30">
-                <h3 className="font-semibold text-lg text-white">Compose in Gmail</h3>
-                <p className="text-sm text-white/80">Gmail web</p>
-              </Card>
+              <Mail className="w-5 h-5 text-white" />
             </a>
 
-            {/* 2) Outlook web compose */}
+            {/* Outlook */}
             <a
               href={`https://outlook.office.com/mail/deeplink/compose?to=${data.email}`}
               target="_blank"
-              rel="noopener noreferrer"
-              className="block"
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
+              title="Outlook"
             >
-              <Card className="cursor-pointer bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30">
-                <h3 className="font-semibold text-lg text-white">Compose in Outlook</h3>
-                <p className="text-sm text-white/80">Outlook web</p>
-              </Card>
+              <Mail className="w-5 h-5 text-white" />
             </a>
 
-            {/* 3) Default mailto: (desktop mail app or mobile mail) */}
+            {/* Default Mail */}
             <a
               href={`mailto:${data.email}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="block"
+              className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center transition hover:bg-white/40"
+              title="Default Mail App"
             >
-              <Card className="cursor-pointer bg-white/20 backdrop-blur-sm border border-white/30 p-4 transition hover:bg-white/30">
-                <h3 className="font-semibold text-lg text-white">Use my default mail app</h3>
-                <p className="text-sm text-white/80">{data.email}</p>
-              </Card>
+              <Mail className="w-5 h-5 text-white" />
             </a>
           </div>
         </div>
