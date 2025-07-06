@@ -26,7 +26,7 @@ const Micropage = () => {
     name: 'George Harrison V',
     title: 'Aerospace Engineer | Software Developer Incoming F-22 Flight Test Engineer',
     bio:
-      'Driven Engineer with a passion for aerospace engineering and software development. Currently exploring Creative Content Creation and AI.',
+      'Driven and highly adaptable engineer with an entrepreneurial mindset and expertise in aerospace and software. Currently delving into AI, photography, and business development',
     email: 'gcharrisv@gmail.com',
     profileImage: 'profile-hero.jpg',
     socialLinks: [
@@ -54,20 +54,20 @@ const Micropage = () => {
         id: '1',
         title: 'Capstone Aerospace',
         url: 'https://capstoneaerospace.net/',
-        description: 'My Aircraft Senior Design Project',
+        description: 'Aircraft Senior Design Project',
         visible: true,
       },
       {
         id: '2',
-        title: 'Under Construction',
-        url: '#',
-        description: 'Super Duper Cool Project Coming',
+        title: 'Super Duper Cool Project',
+        url: 'https://www.youtube.com/watch?v=xvFZjo5PgG0',
+        description: 'Click to see something awesome',
         visible: true,
       },
       {
         id: '3',
         title: 'Another Epic Project',
-        url: '#',
+        url: 'https://www.youtube.com/watch?v=xvFZjo5PgG0',
         description: 'Under Construction',
         visible: true,
       },
@@ -123,8 +123,8 @@ const Micropage = () => {
                 href={s.url}
                 className={cn(
                   "w-10 h-10 rounded-full flex items-center justify-center transition shadow-lg",
-                  theme === 'light' 
-                    ? 'bg-white/90 hover:bg-white border border-gray-200' 
+                  theme === 'light'
+                    ? 'bg-white/90 hover:bg-white border border-gray-200'
                     : 'bg-white/20 hover:bg-white/40'
                 )}
               >
@@ -166,6 +166,16 @@ const Micropage = () => {
               </a>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-semibold mb-2 text-white">TO BEING BOLD</h2>
+        </div>
+
+        <div className="text-center text-sm text-gray-500">
+          <p>© {new Date().getFullYear()} George Harrison V</p>
+          <p>Built cause I was bored and didn't want to pay for a linktree :)</p>
+          <p>Yippee</p>
         </div>
 
       </div>
