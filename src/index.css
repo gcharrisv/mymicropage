@@ -46,6 +46,12 @@
     --shadow-glow: 0 0 40px hsl(346 77% 49.8% / 0.3);
     --shadow-card: 0 8px 32px hsl(240 10% 3.9% / 0.12);
     --shadow-button: 0 4px 16px hsl(346 77% 49.8% / 0.4);
+    
+    /* Micropage specific shadows for better background contrast */
+    --shadow-micropage-light: 0 8px 25px hsl(240 10% 3.9% / 0.25);
+    --shadow-micropage-light-hover: 0 12px 35px hsl(240 10% 3.9% / 0.35);
+    --shadow-micropage-dark: 0 8px 25px hsl(346 77% 49.8% / 0.4);
+    --shadow-micropage-dark-hover: 0 12px 35px hsl(346 77% 49.8% / 0.6);
 
     /* Animation variables */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -146,6 +152,22 @@
   
   .shadow-button {
     box-shadow: var(--shadow-button);
+  }
+  
+  .shadow-micropage-light {
+    box-shadow: var(--shadow-micropage-light);
+  }
+  
+  .shadow-micropage-light-hover {
+    box-shadow: var(--shadow-micropage-light-hover);
+  }
+  
+  .shadow-micropage-dark {
+    box-shadow: var(--shadow-micropage-dark);
+  }
+  
+  .shadow-micropage-dark-hover {
+    box-shadow: var(--shadow-micropage-dark-hover);
   }
 
   /* Transitions */
