@@ -18,12 +18,16 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        gradient: "bg-gradient-primary text-white shadow-button hover:shadow-glow transition-smooth hover:scale-105",
+        glass: "glass backdrop-blur-md text-white border-white/20 hover:bg-white/20 transition-smooth hover:scale-105",
+        micropage: "bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white/20 hover:scale-105 transition-smooth shadow-card hover:shadow-button",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
+        micropage: "h-14 px-6 py-4 text-base rounded-xl",
       },
     },
     defaultVariants: {
