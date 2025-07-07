@@ -29,7 +29,7 @@ const Micropage = () => {
     bio:
       'Driven and highly adaptable engineer with an entrepreneurial mindset and expertise in aerospace and software. Currently delving into AI, photography, and business development',
     email: 'gcharrisv@gmail.com',
-    profileImage: 'profile-hero.jpeg',
+    profileImage: 'profile-hero.jpg',
     socialLinks: [
       {
         platform: 'Instagram',
@@ -107,7 +107,7 @@ const Micropage = () => {
             <img
               src={data.profileImage}
               alt={data.name}
-              className="w-full h-full object-cover"
+              className="scale-[2] w-full h-full object-cover object-center translate-y-[25%]"
             />
           </div>
           <h1 className="mt-4 text-3xl font-bold drop-shadow-lg text-white">{data.name}</h1>
