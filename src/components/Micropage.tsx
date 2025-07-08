@@ -25,7 +25,8 @@ const Micropage = () => {
 
   const [data] = useState({
     name: 'George Harrison V',
-    title: 'Aerospace Engineer | Software Developer Incoming F-22 Flight Test Engineer',
+    title: 'Aerospace & Software Engineer',
+    current_role: 'Incoming F-22 Raptor Flight Test Engineer',
     bio:
       'Driven and highly adaptable engineer with an entrepreneurial mindset and expertise in aerospace and software. Currently delving into AI, photography, and business development',
     email: 'gcharrisv@gmail.com',
@@ -112,6 +113,7 @@ const Micropage = () => {
           </div>
           <h1 className="mt-4 text-3xl font-bold drop-shadow-lg text-white">{data.name}</h1>
           <p className="mt-1 text-lg drop-shadow-md text-white">{data.title}</p>
+          <p className="mt-1 text-lg drop-shadow-md text-white">{data.current_role}</p>
           <p className="mt-2 text-base leading-relaxed drop-shadow-md text-white">{data.bio}</p>
         </div>
 
