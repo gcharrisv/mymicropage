@@ -13,7 +13,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename={import.meta.env.MODE === 'production' ? '/mymicropage' : '/'}>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
         </Routes>
