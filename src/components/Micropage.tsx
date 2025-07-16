@@ -26,9 +26,9 @@ const Micropage = () => {
   const [data] = useState({
     name: 'George Harrison V',
     title: 'Aerospace & Software Engineer',
-    current_role: 'Incoming F-22 Raptor Flight Test Engineer',
+    current_role: '',
     bio:
-      'Driven and highly adaptable engineer with an entrepreneurial mindset and expertise in aerospace and software. Currently delving into AI, photography, and business development',
+      'Adaptable and driven engineer with an entrepreneurial mindset, relentless curiosity (hence the name, Curious George), and a passion for turning bold ideas into working technology. I thrive in rapid learning and hands-on building environments.',
     email: 'gcharrisv@gmail.com',
     profileImage: 'profile-hero.jpg',
     socialLinks: [
@@ -61,14 +61,14 @@ const Micropage = () => {
       },
       {
         id: '2',
-        title: 'Super Duper Cool Project',
+        title: 'Coming Soon',
         url: 'https://www.youtube.com/watch?v=xvFZjo5PgG0',
-        description: 'Click to see something awesome',
+        description: 'Under Construction',
         visible: true,
       },
       {
         id: '3',
-        title: 'Another Epic Project',
+        title: 'Coming Soon',
         url: 'https://www.youtube.com/watch?v=xvFZjo5PgG0',
         description: 'Under Construction',
         visible: true,
@@ -186,7 +186,7 @@ const Micropage = () => {
 
         <div className="text-center text-sm text-gray-500">
           <p>© {new Date().getFullYear()} George Harrison V</p>
-          <p>Built cause I was bored and didn't want to pay for a linktree :)</p>
+          <p></p>
         </div>
 
       </div>
